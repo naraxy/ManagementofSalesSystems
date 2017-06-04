@@ -33,7 +33,8 @@ SOURCES += \
     core/buyrecordwidget.cpp \
     core/sellrecordwidget.cpp \
     db/initdb.cpp \
-    db/connectdb.cpp
+    db/connectdb.cpp \
+    core/selectwidget.cpp
 
 HEADERS += \
         mainwidget.h \
@@ -44,4 +45,5 @@ HEADERS += \
     core/buyrecordwidget.h \
     core/sellrecordwidget.h \
     db/initdb.h \
-    db/connectdb.h
+    db/connectdb.h \
+    core/selectwidget.h
