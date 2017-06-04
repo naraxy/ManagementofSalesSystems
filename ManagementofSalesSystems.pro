@@ -25,7 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwidget.cpp
+        mainwidget.cpp \
+    core/buycommoditywidget.cpp \
+    core/sellcommoditywidget.cpp \
+    core/addnewarrivalwidget.cpp \
+    core/commodityinfowidget.cpp \
+    core/buyrecordwidget.cpp \
+    core/sellrecordwidget.cpp \
+    db/initdb.cpp \
+    db/connectdb.cpp
 
 HEADERS += \
-        mainwidget.h
+        mainwidget.h \
+    core/buycommoditywidget.h \
+    core/sellcommoditywidget.h \
+    core/addnewarrivalwidget.h \
+    core/commodityinfowidget.h \
+    core/buyrecordwidget.h \
+    core/sellrecordwidget.h \
+    db/initdb.h \
+    db/connectdb.h
