@@ -4,7 +4,7 @@
 
 > 创建于Desktop Qt5.9.0 MinGW 32bit 
 
-> 在window 10 x64上编译
+> 在windows 10 x64上编译
 ---
 #### 系统功能结构
 - 购进商品
