@@ -36,3 +36,8 @@ private slots:
     void showSellRecordWidget();
 ```
 > 修改于2017/6/4 11:39 
+
+---
+- 完成主页面设计
+- 做好了跳转传值测试
+> 修改于2017/6/5 01:00

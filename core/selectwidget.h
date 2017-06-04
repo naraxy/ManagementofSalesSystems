@@ -6,6 +6,7 @@
 class QRadioButton;
 class QPushButton;
 class QSpacerItem;
+class QButtonGroup;
 
 class selectWidget : public QWidget
 {
@@ -16,13 +17,12 @@ public:
 private:
     QRadioButton *buyBtn,*sellBtn,*addBtn,*infoBtn,*buyRecordBtn,*sellRecordBtn;
     QPushButton *nextBtn;
+    QButtonGroup *radioBtnGroup;
 
     QSpacerItem *Vspacer,*Hspacer;
 
-
-signals:
-
 public slots:
+    void showSelected();
 };
 
 #endif // SELECTWIDGET_H

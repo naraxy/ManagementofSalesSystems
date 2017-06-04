@@ -4,7 +4,9 @@
 #include <QSpacerItem>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QButtonGroup>
 #include <QFont>
+#include <QDebug>
 
 selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
 {
@@ -21,6 +23,7 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     Hspacer = new QSpacerItem(490,20);
     nextBtn = new QPushButton(tr("下一步"));
 //    页面布局
+    radioBtnGroup = new QButtonGroup();
     QVBoxLayout *radioBtnLayout = new QVBoxLayout();
     QHBoxLayout *pushbtnLayout = new QHBoxLayout();
 //    局部布局
@@ -52,10 +55,24 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     buyRecordBtn->setFont(btnFont);
     sellRecordBtn->setFixedHeight(30);
     sellRecordBtn->setFont(btnFont);
+
+    radioBtnGroup->addButton(buyBtn,0);
+    radioBtnGroup->addButton(sellBtn,1);
+    radioBtnGroup->addButton(addBtn,2);
+    radioBtnGroup->addButton(infoBtn,3);
+    radioBtnGroup->addButton(buyRecordBtn,4);
+    radioBtnGroup->addButton(sellRecordBtn,5);
 //    运行布局
     mainLayout->addLayout(radioBtnLayout);
     mainLayout->addLayout(pushbtnLayout);
     this->setLayout(mainLayout);
 //    信号与槽
+    connect(nextBtn,SIGNAL(clicked()),this,SLOT(showSelected()));
+
+}
+
+void selectWidget::showSelected()
+{
+    qDebug() << radioBtnGroup->checkedId();
 
 }
