@@ -6,15 +6,15 @@
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <QFont>
-#include <QDebug>
+//#include <QDebug>
 
 selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
 {
 //    初始化
     this->resize(560,330);
 //    页面部件
-    buyBtn = new QRadioButton(tr("购进商品信息"));
-    sellBtn = new QRadioButton(tr("卖出商品信息"));
+    buyBtn = new QRadioButton(tr("采购商品信息"));
+    sellBtn = new QRadioButton(tr("销售商品信息"));
     addBtn = new QRadioButton(tr("添加新品信息"));
     infoBtn = new QRadioButton(tr("查看商品信息"));
     buyRecordBtn = new QRadioButton(tr("查看采购记录"));
@@ -56,12 +56,12 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     sellRecordBtn->setFixedHeight(30);
     sellRecordBtn->setFont(btnFont);
 
-    radioBtnGroup->addButton(buyBtn,0);
-    radioBtnGroup->addButton(sellBtn,1);
-    radioBtnGroup->addButton(addBtn,2);
-    radioBtnGroup->addButton(infoBtn,3);
-    radioBtnGroup->addButton(buyRecordBtn,4);
-    radioBtnGroup->addButton(sellRecordBtn,5);
+    radioBtnGroup->addButton(buyBtn,1);
+    radioBtnGroup->addButton(sellBtn,2);
+    radioBtnGroup->addButton(addBtn,3);
+    radioBtnGroup->addButton(infoBtn,4);
+    radioBtnGroup->addButton(buyRecordBtn,5);
+    radioBtnGroup->addButton(sellRecordBtn,6);
 //    运行布局
     mainLayout->addLayout(radioBtnLayout);
     mainLayout->addLayout(pushbtnLayout);
@@ -73,6 +73,6 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
 
 void selectWidget::showSelected()
 {
-    qDebug() << radioBtnGroup->checkedId();
-
+//    qDebug() << radioBtnGroup->checkedId();
+    emit SelectChanged(radioBtnGroup->checkedId());
 }

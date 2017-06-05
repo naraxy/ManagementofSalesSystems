@@ -14,6 +14,9 @@ class selectWidget : public QWidget
 public:
     explicit selectWidget(QWidget *parent = nullptr);
 
+signals:
+    void SelectChanged(int id);
+
 private:
     QRadioButton *buyBtn,*sellBtn,*addBtn,*infoBtn,*buyRecordBtn,*sellRecordBtn;
     QPushButton *nextBtn;
@@ -21,7 +24,7 @@ private:
 
     QSpacerItem *Vspacer,*Hspacer;
 
-public slots:
+private slots:
     void showSelected();
 };
 

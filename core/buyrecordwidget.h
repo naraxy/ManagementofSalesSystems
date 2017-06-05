@@ -2,6 +2,8 @@
 #define BUYRECORDWIDGET_H
 
 #include <QWidget>
+class QPushButton;
+class QLabel;
 
 class buyRecordWidget : public QWidget
 {
@@ -10,8 +12,15 @@ public:
     explicit buyRecordWidget(QWidget *parent = nullptr);
 
 signals:
+    void backBuyRecordSignal(int Id);
 
-public slots:
+
+private:
+    QPushButton *backBtn;
+    QLabel *mainTitle;
+
+private slots:
+    void backSlot();
 };
 
 #endif // BUYRECORDWIDGET_H

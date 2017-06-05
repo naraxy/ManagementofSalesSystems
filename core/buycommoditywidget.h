@@ -2,16 +2,25 @@
 #define BUYCOMMODITYWIDGET_H
 
 #include <QWidget>
+class QPushButton;
+class QLabel;
 
 class buyCommodityWidget : public QWidget
 {
     Q_OBJECT
 public:
-     buyCommodityWidget(QWidget *parent = nullptr);
+    explicit buyCommodityWidget(QWidget *parent = nullptr);
 
 signals:
+    void backBuySignal(int Id);
 
-public slots:
+
+private:
+    QPushButton *backBtn;
+    QLabel *mainTitle;
+
+private slots:
+    void backSlot();
 };
 
 #endif // BUYCOMMODITYWIDGET_H

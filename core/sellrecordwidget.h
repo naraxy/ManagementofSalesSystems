@@ -2,6 +2,8 @@
 #define SELLRECORDWIDGET_H
 
 #include <QWidget>
+class QPushButton;
+class QLabel;
 
 class sellRecordWidget : public QWidget
 {
@@ -10,8 +12,15 @@ public:
     explicit sellRecordWidget(QWidget *parent = nullptr);
 
 signals:
+    void backSellRecordSignal(int Id);
 
-public slots:
+
+private:
+    QPushButton *backBtn;
+    QLabel *mainTitle;
+
+private slots:
+    void backSlot();
 };
 
 #endif // SELLRECORDWIDGET_H
