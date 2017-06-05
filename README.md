@@ -64,3 +64,20 @@ connect(sellRecordWgt,SIGNAL(backSellRecordSignal(int)),stackedLayout,SLOT(setCu
 - 完成了所有页面跳转
 - 初始化各页面
 > 修改于2017/6/5 11:48
+---
+#### 数据库功能及结构
+core.db 数据库名
+
+table|commondity
+---|---
+id |int primary key
+name | varchar(30)
+buyprice| real
+sellprice|real
+store|int
+
+table|count
+---|---
+id|int
+record|int
+time|varchar
