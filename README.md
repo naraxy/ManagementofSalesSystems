@@ -68,6 +68,7 @@ connect(sellRecordWgt,SIGNAL(backSellRecordSignal(int)),stackedLayout,SLOT(setCu
 #### 数据库功能及结构
 core.db 数据库名
 name商品 buyprice 采购价格 sellprice 销售价格 store 库存 record 进出库记录 time 时间记录
+
 table|commondity
 ---|---
 id |int primary key
