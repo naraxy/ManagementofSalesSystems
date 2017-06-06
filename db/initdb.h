@@ -1,11 +1,10 @@
 #ifndef INITDB_H
 #define INITDB_H
-
-
 class initDb
 {
 public:
-    initDb();
+    void createDb();
+    void openDb();
 };
 
 #endif // INITDB_H

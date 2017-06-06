@@ -67,7 +67,7 @@ connect(sellRecordWgt,SIGNAL(backSellRecordSignal(int)),stackedLayout,SLOT(setCu
 ---
 #### 数据库功能及结构
 core.db 数据库名
-name商品 buyprice 采购价格 sellprice 销售价格 store 库存 record 进出库记录 time 时间记录
+name商品 buyprice 采购价格 sellprice 销售价格 store 库存 pirce 价格 record 进出库记录 time 时间记录
 
 table|commondity
 ---|---
@@ -77,8 +77,22 @@ buyprice| real
 sellprice|real
 store|int
 
-table|count
+table|countin
 ---|---
-id|int
+name|varchar(30)
+price|real
 record|int
-time|varchar(30)
+time|varchar(20)
+
+table|countout
+---|---
+name|varchar(30)
+price|real
+record|int
+time|varchar(20)
+
+- 创建了数据库
+- 采购界面及功能已完成！
+> 修改于2017/6/7 01:34
+---
+

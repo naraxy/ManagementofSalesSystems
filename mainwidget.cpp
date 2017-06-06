@@ -3,12 +3,20 @@
 #include <QVBoxLayout>
 #include <QStackedLayout>
 #include <QFont>
+#include <QFile>
 
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
 {
 //    初始化
     this->setFixedSize(560,380);
+    QFile f("./core.db");
+    if(!f.exists())
+    {
+        init->createDb();
+    }else {
+        init->openDb();
+    }
 //    页面部件
     mainTitle = new QLabel(tr("商品销售系统"));
 //    页面布局

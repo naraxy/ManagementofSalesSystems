@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql
 
@@ -33,7 +33,6 @@ SOURCES += \
     core/buyrecordwidget.cpp \
     core/sellrecordwidget.cpp \
     db/initdb.cpp \
-    db/connectdb.cpp \
     core/selectwidget.cpp
 
 HEADERS += \
@@ -45,5 +44,4 @@ HEADERS += \
     core/buyrecordwidget.h \
     core/sellrecordwidget.h \
     db/initdb.h \
-    db/connectdb.h \
     core/selectwidget.h
