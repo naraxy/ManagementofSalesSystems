@@ -6,12 +6,14 @@
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <QFont>
+#include <QApplication>
 //#include <QDebug>
 
 selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
 {
 //    初始化
     this->resize(560,330);
+    this->setAttribute(Qt::WA_QuitOnClose,true);
 //    页面部件
     buyBtn = new QRadioButton(tr("采购商品信息"));
     sellBtn = new QRadioButton(tr("销售商品信息"));
@@ -20,8 +22,9 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     buyRecordBtn = new QRadioButton(tr("查看采购记录"));
     sellRecordBtn = new QRadioButton(tr("查看销售记录"));
     Vspacer = new QSpacerItem(20,110);
-    Hspacer = new QSpacerItem(490,20);
+    Hspacer = new QSpacerItem(420,20);
     nextBtn = new QPushButton(tr("下一步"));
+    exitBtn = new QPushButton(tr("退出"));
 //    页面布局
     radioBtnGroup = new QButtonGroup();
     QVBoxLayout *radioBtnLayout = new QVBoxLayout();
@@ -36,6 +39,7 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     radioBtnLayout->addWidget(sellRecordBtn);
     radioBtnLayout->addSpacerItem(Vspacer);
 
+    pushbtnLayout->addWidget(exitBtn);
     pushbtnLayout->addSpacerItem(Hspacer);
     pushbtnLayout->addWidget(nextBtn);
 //    总体布局
@@ -68,7 +72,7 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     this->setLayout(mainLayout);
 //    信号与槽
     connect(nextBtn,SIGNAL(clicked()),this,SLOT(showSelected()));
-
+    connect(exitBtn,SIGNAL(clicked()),qApp,SLOT(quit()));
 }
 
 void selectWidget::showSelected()

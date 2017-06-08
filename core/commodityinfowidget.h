@@ -7,6 +7,9 @@ class QLabel;
 class QSqlTableModel;
 class QTableView;
 class QSpacerItem;
+class QVBoxLayout;
+class QGroupBox;
+class QHBoxLayout;
 
 class commodityInfoWidget : public QWidget
 {
@@ -16,12 +19,16 @@ public:
 
 signals:
     void backInfoSignal(int Id);
+    void backInfoFresh();
 
 private:
-    QPushButton *backBtn,*freshBtn;
+    QPushButton *backBtn;
     QTableView *tableView;
     QSqlTableModel *sqlModel;
     QSpacerItem *Hspacer;
+    QGroupBox *optionBox;
+    QVBoxLayout *mainLayout,*optionLayout;
+    QHBoxLayout *btnLayout;
 
 private slots:
     void backSlot();

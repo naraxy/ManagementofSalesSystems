@@ -2,12 +2,14 @@
 #define BUYCOMMODITYWIDGET_H
 
 #include <QWidget>
-
 class QPushButton;
 class QLabel;
 class QSpacerItem;
 class QComboBox;
 class QLineEdit;
+class QVBoxLayout;
+class QHBoxLayout;
+class QGroupBox;
 
 class buyCommodityWidget : public QWidget
 {
@@ -25,6 +27,9 @@ private:
     QLabel *nameTitle,*buyPriceTitle,*numberTitle;
     QLineEdit *buyPrice,*number;
     QComboBox *name;
+    QVBoxLayout *mainLayout,*optionLayout;
+    QHBoxLayout *optionName,*optionBuyPrice,*optionNum,*btnLayout;
+    QGroupBox *optionBox;
 
 private slots:
     void backSlot();

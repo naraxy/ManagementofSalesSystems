@@ -19,7 +19,7 @@ signals:
 
 private:
     QRadioButton *buyBtn,*sellBtn,*addBtn,*infoBtn,*buyRecordBtn,*sellRecordBtn;
-    QPushButton *nextBtn;
+    QPushButton *nextBtn,*exitBtn;
     QButtonGroup *radioBtnGroup;
 
     QSpacerItem *Vspacer,*Hspacer;

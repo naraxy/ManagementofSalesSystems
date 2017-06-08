@@ -4,6 +4,7 @@
 #include <QWidget>
 class QPushButton;
 class QLabel;
+class QVBoxLayout;
 
 class addNewArrivalWidget : public QWidget
 {
@@ -18,6 +19,7 @@ signals:
 private:
     QPushButton *backBtn;
     QLabel *mainTitle;
+    QVBoxLayout *mainLayout;
 
 private slots:
     void backSlot();

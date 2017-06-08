@@ -33,13 +33,13 @@ sellCommodityWidget::sellCommodityWidget(QWidget *parent) : QWidget(parent)
     Hspacer = new QSpacerItem(420,20);
     OHspacer = new QSpacerItem(220,30);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    QGroupBox *optionBox =new QGroupBox(tr("录入销售商品信息"));
-    QVBoxLayout *optionLayout = new QVBoxLayout();
-    QHBoxLayout *optionName = new QHBoxLayout();
-    QHBoxLayout *optionSellPrice = new QHBoxLayout();
-    QHBoxLayout *optionNum = new QHBoxLayout();
-    QHBoxLayout *btnLayout = new QHBoxLayout();
+    mainLayout = new QVBoxLayout();
+    optionBox =new QGroupBox(tr("录入销售商品信息"));
+    optionLayout = new QVBoxLayout();
+    optionName = new QHBoxLayout();
+    optionSellPrice = new QHBoxLayout();
+    optionNum = new QHBoxLayout();
+    btnLayout = new QHBoxLayout();
     //    局部布局
     okBtn->resize(70,20);
     //    字体布局

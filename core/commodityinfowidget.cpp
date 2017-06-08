@@ -12,14 +12,13 @@ commodityInfoWidget::commodityInfoWidget(QWidget *parent) : QWidget(parent)
     this->resize(560,330);
     //    页面部件
     backBtn = new QPushButton(tr("返回"));
-    freshBtn = new QPushButton(tr("刷新"));
-    Hspacer = new QSpacerItem(420,20);
+    Hspacer = new QSpacerItem(490,20);
     tableView = new QTableView();
 
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    QGroupBox *optionBox =new QGroupBox(tr("查看商品信息"));
-    QVBoxLayout *optionLayout = new QVBoxLayout();
-    QHBoxLayout *btnLayout = new QHBoxLayout();
+    mainLayout = new QVBoxLayout();
+    optionBox =new QGroupBox(tr("查看商品信息"));
+    optionLayout = new QVBoxLayout();
+    btnLayout = new QHBoxLayout();
     //    局部布局
     tableView->resize(550,290);
     this->createTable();
@@ -30,7 +29,6 @@ commodityInfoWidget::commodityInfoWidget(QWidget *parent) : QWidget(parent)
     optionLayout->addWidget(tableView);
     optionBox->setLayout(optionLayout);
 
-    btnLayout->addWidget(freshBtn);
     btnLayout->addSpacerItem(Hspacer);
     btnLayout->addWidget(backBtn);
     //    总体布局
@@ -38,7 +36,7 @@ commodityInfoWidget::commodityInfoWidget(QWidget *parent) : QWidget(parent)
     mainLayout->addLayout(btnLayout);
     this->setLayout(mainLayout);
     connect(backBtn,SIGNAL(clicked()),this,SLOT(backSlot()));
-    connect(freshBtn,SIGNAL(clicked()),this,SLOT(freshTable()));
+    connect(this,SIGNAL(backInfoFresh()),this,SLOT(freshTable()));
 }
 
 void commodityInfoWidget::backSlot()

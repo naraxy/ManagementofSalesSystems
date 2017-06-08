@@ -9,6 +9,7 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
 {
 //    初始化
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
     this->setFixedSize(560,380);
     QFile f("./core.db");
     if(!f.exists())
@@ -52,6 +53,8 @@ MainWidget::MainWidget(QWidget *parent)
     this->setLayout(mainLayout);
 //    信号与槽
     connect(selectWgt,SIGNAL(SelectChanged(int)),stackedLayout,SLOT(setCurrentIndex(int)));
+    connect(selectWgt,SIGNAL(SelectChanged(int)),infoWgt,SIGNAL(backInfoFresh()));
+
     connect(buyWgt,SIGNAL(backBuySignal(int)),stackedLayout,SLOT(setCurrentIndex(int)));
     connect(sellWgt,SIGNAL(backSellSignal(int)),stackedLayout,SLOT(setCurrentIndex(int)));
     connect(addWgt,SIGNAL(backAddSignal(int)),stackedLayout,SLOT(setCurrentIndex(int)));

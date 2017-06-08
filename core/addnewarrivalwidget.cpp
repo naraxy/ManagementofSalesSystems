@@ -8,7 +8,7 @@ addNewArrivalWidget::addNewArrivalWidget(QWidget *parent) : QWidget(parent)
     this->resize(560,330);
     mainTitle = new QLabel(tr("录入新品信息"));
     backBtn = new QPushButton(tr("返回"));
-    QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainLayout = new QVBoxLayout();
     mainLayout->addWidget(mainTitle);
     mainLayout->addWidget(backBtn);
     this->setLayout(mainLayout);

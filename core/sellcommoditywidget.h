@@ -7,6 +7,9 @@ class QLabel;
 class QSpacerItem;
 class QComboBox;
 class QLineEdit;
+class QVBoxLayout;
+class QHBoxLayout;
+class QGroupBox;
 
 class sellCommodityWidget : public QWidget
 {
@@ -24,6 +27,9 @@ private:
     QLabel *nameTitle,*sellPriceTitle,*numberTitle;
     QLineEdit *sellPrice,*number;
     QComboBox *name;
+    QVBoxLayout *mainLayout,*optionLayout;
+    QHBoxLayout *optionName,*optionSellPrice,*optionNum,*btnLayout;
+    QGroupBox *optionBox;
 
 private slots:
     void backSlot();
