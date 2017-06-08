@@ -13,7 +13,7 @@
 #include <QValidator>
 #include <QDateTime>
 #include <QMessageBox>
-#include <QDebug>
+//#include <QDebug>
 
 buyCommodityWidget::buyCommodityWidget(QWidget *parent) : QWidget(parent)
 {
@@ -102,7 +102,6 @@ void buyCommodityWidget::refreshName()
     }
 }
 
-
 void buyCommodityWidget::backSlot()
 {
     emit backBuySignal(0);
@@ -116,7 +115,7 @@ void buyCommodityWidget::insertDb()
     {
         QMessageBox::warning(NULL,tr("错误"),tr("请将数据填写完整！"), QMessageBox::Yes);
     }else{
-        //    寻找选中那个商品
+        //    寻找选中哪个商品
         QSqlQuery qInsert;
         qInsert.prepare("select store from commondity where name = :name");
         qInsert.bindValue(":name",name->currentText());

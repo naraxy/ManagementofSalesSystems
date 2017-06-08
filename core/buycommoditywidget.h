@@ -14,7 +14,6 @@ class buyCommodityWidget : public QWidget
     Q_OBJECT
 public:
     explicit buyCommodityWidget(QWidget *parent = nullptr);
-    void refreshName();
 
 signals:
     void backBuySignal(int Id);
@@ -30,6 +29,7 @@ private:
 private slots:
     void backSlot();
     void insertDb();
+    void refreshName();
 };
 
 #endif // BUYCOMMODITYWIDGET_H

@@ -4,6 +4,9 @@
 #include <QWidget>
 class QPushButton;
 class QLabel;
+class QSqlTableModel;
+class QTableView;
+class QSpacerItem;
 
 class commodityInfoWidget : public QWidget
 {
@@ -14,13 +17,16 @@ public:
 signals:
     void backInfoSignal(int Id);
 
-
 private:
-    QPushButton *backBtn;
-    QLabel *mainTitle;
+    QPushButton *backBtn,*freshBtn;
+    QTableView *tableView;
+    QSqlTableModel *sqlModel;
+    QSpacerItem *Hspacer;
 
 private slots:
     void backSlot();
+    void createTable();
+    void freshTable();
 };
 
 #endif // COMMODITYINFOWIDGET_H

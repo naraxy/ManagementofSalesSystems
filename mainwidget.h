@@ -10,7 +10,6 @@
 #include "./core/buyrecordwidget.h"
 #include "./core/sellrecordwidget.h"
 #include "./db/initdb.h"
-//#include "./db/connectdb.h"
 
 class QLabel;
 
@@ -39,7 +38,6 @@ private:
     buyRecordWidget     *buyRecordWgt;
     sellRecordWidget    *sellRecordWgt;
     initDb              *init; //初始化数据库
-//    connectDb           *connectSqlite; //连接数据库及使用
 //主界面部件
     QLabel *mainTitle;
 

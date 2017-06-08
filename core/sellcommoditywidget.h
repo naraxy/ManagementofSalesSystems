@@ -4,6 +4,9 @@
 #include <QWidget>
 class QPushButton;
 class QLabel;
+class QSpacerItem;
+class QComboBox;
+class QLineEdit;
 
 class sellCommodityWidget : public QWidget
 {
@@ -16,11 +19,16 @@ signals:
 
 
 private:
-    QPushButton *backBtn;
-    QLabel *mainTitle;
+    QPushButton *backBtn,*okBtn;
+    QSpacerItem *Vspacer,*Hspacer,*OHspacer;
+    QLabel *nameTitle,*sellPriceTitle,*numberTitle;
+    QLineEdit *sellPrice,*number;
+    QComboBox *name;
 
 private slots:
     void backSlot();
+    void insertDb();
+    void refreshName();
 };
 
 #endif // SELLCOMMODITYWIDGET_H
