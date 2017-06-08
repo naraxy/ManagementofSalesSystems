@@ -32,7 +32,6 @@ SOURCES += \
     core/commodityinfowidget.cpp \
     core/buyrecordwidget.cpp \
     core/sellrecordwidget.cpp \
-    db/initdb.cpp \
     core/selectwidget.cpp
 
 HEADERS += \
@@ -43,5 +42,4 @@ HEADERS += \
     core/commodityinfowidget.h \
     core/buyrecordwidget.h \
     core/sellrecordwidget.h \
-    db/initdb.h \
     core/selectwidget.h

@@ -17,6 +17,7 @@ public:
 
 signals:
     void SelectChanged(int id);
+    void exitBtnClicked();
 
 private:
     QRadioButton *buyBtn,*sellBtn,*addBtn,*infoBtn,*buyRecordBtn,*sellRecordBtn;

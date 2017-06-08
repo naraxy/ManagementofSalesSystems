@@ -6,14 +6,12 @@
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <QFont>
-#include <QApplication>
 //#include <QDebug>
 
 selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
 {
 //    初始化
     this->resize(560,330);
-    this->setAttribute(Qt::WA_QuitOnClose,true);
 //    页面部件
     buyBtn = new QRadioButton(tr("采购商品信息"));
     sellBtn = new QRadioButton(tr("销售商品信息"));
@@ -72,7 +70,7 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     this->setLayout(mainLayout);
 //    信号与槽
     connect(nextBtn,SIGNAL(clicked()),this,SLOT(showSelected()));
-    connect(exitBtn,SIGNAL(clicked()),qApp,SLOT(quit()));
+    connect(exitBtn,SIGNAL(clicked()),this,SIGNAL(exitBtnClicked()));
 }
 
 selectWidget::~selectWidget()
@@ -81,6 +79,6 @@ selectWidget::~selectWidget()
 
 void selectWidget::showSelected()
 {
-//    qDebug() << radioBtnGroup->checkedId();
+    //    qDebug() << radioBtnGroup->checkedId();
     emit SelectChanged(radioBtnGroup->checkedId());
 }

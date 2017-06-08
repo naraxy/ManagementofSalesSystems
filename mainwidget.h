@@ -9,9 +9,10 @@
 #include "./core/commodityinfowidget.h"
 #include "./core/buyrecordwidget.h"
 #include "./core/sellrecordwidget.h"
-#include "./db/initdb.h"
-
+class QSqlDatabase;
 class QLabel;
+class QStackedLayout;
+class QVBoxLayout;
 
 class MainWidget : public QWidget
 {
@@ -20,6 +21,9 @@ class MainWidget : public QWidget
 public:
     MainWidget(QWidget *parent = 0);
     ~MainWidget();
+
+public slots:
+    void showWidget();
 /*
  * #### 系统功能结构
  * - 采购商品
@@ -37,10 +41,11 @@ private:
     commodityInfoWidget *infoWgt;
     buyRecordWidget     *buyRecordWgt;
     sellRecordWidget    *sellRecordWgt;
-    initDb              *init; //初始化数据库
 //主界面部件
-    QLabel *mainTitle;
-
+    QLabel              *mainTitle;
+    QSqlDatabase        *db;
+    QStackedLayout      *stackedLayout;
+    QVBoxLayout         *mainLayout;
 };
 
 #endif // MAINWIDGET_H
