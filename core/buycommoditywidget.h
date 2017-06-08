@@ -2,6 +2,7 @@
 #define BUYCOMMODITYWIDGET_H
 
 #include <QWidget>
+#include <QValidator>
 class QPushButton;
 class QLabel;
 class QSpacerItem;
@@ -16,9 +17,11 @@ class buyCommodityWidget : public QWidget
     Q_OBJECT
 public:
     explicit buyCommodityWidget(QWidget *parent = nullptr);
+    ~buyCommodityWidget();
 
 signals:
     void backBuySignal(int Id);
+    void backBuyFresh();
 
 
 private:
@@ -30,11 +33,14 @@ private:
     QVBoxLayout *mainLayout,*optionLayout;
     QHBoxLayout *optionName,*optionBuyPrice,*optionNum,*btnLayout;
     QGroupBox *optionBox;
+    QDoubleValidator *buyPriceVal;
+    QIntValidator *numberVal;
 
 private slots:
     void backSlot();
     void insertDb();
-    void refreshName();
+    void createName();
+    void freshName();
 };
 
 #endif // BUYCOMMODITYWIDGET_H

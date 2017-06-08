@@ -54,6 +54,11 @@ MainWidget::MainWidget(QWidget *parent)
 //    信号与槽
     connect(selectWgt,SIGNAL(SelectChanged(int)),stackedLayout,SLOT(setCurrentIndex(int)));
     connect(selectWgt,SIGNAL(SelectChanged(int)),infoWgt,SIGNAL(backInfoFresh()));
+    connect(selectWgt,SIGNAL(SelectChanged(int)),buyWgt,SIGNAL(backBuyFresh()));
+    connect(selectWgt,SIGNAL(SelectChanged(int)),sellWgt,SIGNAL(backSellFresh()));
+    connect(selectWgt,SIGNAL(SelectChanged(int)),buyRecordWgt,SIGNAL(backBuyRecordFresh()));
+    connect(selectWgt,SIGNAL(SelectChanged(int)),sellRecordWgt,SIGNAL(backSellRecordFresh()));
+
 
     connect(buyWgt,SIGNAL(backBuySignal(int)),stackedLayout,SLOT(setCurrentIndex(int)));
     connect(sellWgt,SIGNAL(backSellSignal(int)),stackedLayout,SLOT(setCurrentIndex(int)));

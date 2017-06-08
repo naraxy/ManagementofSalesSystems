@@ -2,6 +2,7 @@
 #define SELLCOMMODITYWIDGET_H
 
 #include <QWidget>
+#include <QValidator>
 class QPushButton;
 class QLabel;
 class QSpacerItem;
@@ -16,9 +17,11 @@ class sellCommodityWidget : public QWidget
     Q_OBJECT
 public:
     explicit sellCommodityWidget(QWidget *parent = nullptr);
+    ~sellCommodityWidget();
 
 signals:
     void backSellSignal(int Id);
+    void backSellFresh();
 
 
 private:
@@ -30,11 +33,14 @@ private:
     QVBoxLayout *mainLayout,*optionLayout;
     QHBoxLayout *optionName,*optionSellPrice,*optionNum,*btnLayout;
     QGroupBox *optionBox;
+    QDoubleValidator *sellPriceVal;
+    QIntValidator *numberVal;
 
 private slots:
     void backSlot();
     void insertDb();
-    void refreshName();
+    void createName();
+    void freshName();
 };
 
 #endif // SELLCOMMODITYWIDGET_H

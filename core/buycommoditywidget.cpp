@@ -10,7 +10,6 @@
 #include <QFont>
 #include <QLineEdit>
 #include <QSqlQuery>
-#include <QValidator>
 #include <QDateTime>
 #include <QMessageBox>
 //#include <QDebug>
@@ -24,7 +23,7 @@ buyCommodityWidget::buyCommodityWidget(QWidget *parent) : QWidget(parent)
     buyPriceTitle = new QLabel(tr("采购价："));
     numberTitle = new QLabel(tr("采购量："));
     name = new QComboBox();
-    this->refreshName();
+    this->createName();
     buyPrice = new QLineEdit();
     number = new QLineEdit();
 
@@ -47,12 +46,11 @@ buyCommodityWidget::buyCommodityWidget(QWidget *parent) : QWidget(parent)
     QFont labelFont;
     labelFont.setPointSize(13);
     //    填表规范
-    //    QRegularExpressionValidator nameVal("^[u4e00-u9fa5],{0,}$");
-    QDoubleValidator *buyPriceVal = new QDoubleValidator;
+    buyPriceVal = new QDoubleValidator;
     buyPriceVal->setRange(0,1000,2);
     buyPriceVal->setNotation(QDoubleValidator::StandardNotation);
     buyPrice->setValidator(buyPriceVal);
-    QIntValidator *numberVal = new QIntValidator;
+    numberVal = new QIntValidator;
     numberVal->setRange(0,1000);
     number->setValidator(numberVal);
     //    选项栏布局
@@ -91,9 +89,14 @@ buyCommodityWidget::buyCommodityWidget(QWidget *parent) : QWidget(parent)
     //    信号与槽
     connect(backBtn,SIGNAL(clicked()),this,SLOT(backSlot()));
     connect(okBtn,SIGNAL(clicked()),this,SLOT(insertDb()));
+    connect(this,SIGNAL(backBuyFresh()),this,SLOT(freshName()));
 }
 
-void buyCommodityWidget::refreshName()
+buyCommodityWidget::~buyCommodityWidget()
+{
+}
+
+void buyCommodityWidget::createName()
 {
     QSqlQuery qName;
     qName.exec("SELECT name FROM commondity");
@@ -102,11 +105,17 @@ void buyCommodityWidget::refreshName()
     }
 }
 
+void buyCommodityWidget::freshName()
+{
+    name->clear();
+    this->createName();
+}
+
 void buyCommodityWidget::backSlot()
 {
+    buyPrice->clear();
+    number->clear();
     emit backBuySignal(0);
-    name->clear();
-    this->refreshName();
 }
 
 void buyCommodityWidget::insertDb()
@@ -138,7 +147,7 @@ void buyCommodityWidget::insertDb()
         qInsert.bindValue(":record",number->text().toInt());
         qInsert.bindValue(":time",curTime);
         qInsert.exec();
-//        确认写入数据
+        //    确认写入数据
         QMessageBox::information(NULL,tr("有效数据"),tr("数据已上传！"), QMessageBox::Yes);
     }
 }

@@ -13,6 +13,7 @@ class selectWidget : public QWidget
     Q_OBJECT
 public:
     explicit selectWidget(QWidget *parent = nullptr);
+    ~selectWidget();
 
 signals:
     void SelectChanged(int id);

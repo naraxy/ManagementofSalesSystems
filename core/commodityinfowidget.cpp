@@ -39,6 +39,10 @@ commodityInfoWidget::commodityInfoWidget(QWidget *parent) : QWidget(parent)
     connect(this,SIGNAL(backInfoFresh()),this,SLOT(freshTable()));
 }
 
+commodityInfoWidget::~commodityInfoWidget()
+{
+}
+
 void commodityInfoWidget::backSlot()
 {
     emit backInfoSignal(0);

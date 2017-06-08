@@ -10,7 +10,6 @@
 #include <QFont>
 #include <QLineEdit>
 #include <QSqlQuery>
-#include <QValidator>
 #include <QDateTime>
 #include <QMessageBox>
 //#include <QDebug>
@@ -23,7 +22,7 @@ sellCommodityWidget::sellCommodityWidget(QWidget *parent) : QWidget(parent)
     sellPriceTitle = new QLabel(tr("销售价："));
     numberTitle = new QLabel(tr("销售量："));
     name = new QComboBox();
-    this->refreshName();
+    this->createName();
     sellPrice = new QLineEdit();
     number = new QLineEdit();
 
@@ -46,11 +45,11 @@ sellCommodityWidget::sellCommodityWidget(QWidget *parent) : QWidget(parent)
     QFont labelFont;
     labelFont.setPointSize(13);
     //    填表规范
-    QDoubleValidator *sellPriceVal = new QDoubleValidator;
+    sellPriceVal = new QDoubleValidator;
     sellPriceVal->setRange(0,1000,2);
     sellPriceVal->setNotation(QDoubleValidator::StandardNotation);
     sellPrice->setValidator(sellPriceVal);
-    QIntValidator *numberVal = new QIntValidator;
+    numberVal = new QIntValidator;
     numberVal->setRange(0,1000);
     number->setValidator(numberVal);
     //    选项栏布局
@@ -89,9 +88,14 @@ sellCommodityWidget::sellCommodityWidget(QWidget *parent) : QWidget(parent)
     //    信号与槽
     connect(backBtn,SIGNAL(clicked()),this,SLOT(backSlot()));
     connect(okBtn,SIGNAL(clicked()),this,SLOT(insertDb()));
+    connect(this,SIGNAL(backSellFresh()),this,SLOT(freshName()));
 }
 
-void sellCommodityWidget::refreshName()
+sellCommodityWidget::~sellCommodityWidget()
+{
+}
+
+void sellCommodityWidget::createName()
 {
     QSqlQuery qName;
     qName.exec("SELECT name FROM commondity");
@@ -100,11 +104,17 @@ void sellCommodityWidget::refreshName()
     }
 }
 
+void sellCommodityWidget::freshName()
+{
+    name->clear();
+    this->createName();
+}
+
 void sellCommodityWidget::backSlot()
 {
+    sellPrice->clear();
+    number->clear();
     emit backSellSignal(0);
-    name->clear();
-    this->refreshName();
 }
 
 void sellCommodityWidget::insertDb()

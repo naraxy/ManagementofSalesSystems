@@ -75,6 +75,10 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     connect(exitBtn,SIGNAL(clicked()),qApp,SLOT(quit()));
 }
 
+selectWidget::~selectWidget()
+{
+}
+
 void selectWidget::showSelected()
 {
 //    qDebug() << radioBtnGroup->checkedId();

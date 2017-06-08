@@ -16,6 +16,7 @@ class commodityInfoWidget : public QWidget
     Q_OBJECT
 public:
     explicit commodityInfoWidget(QWidget *parent = nullptr);
+    ~commodityInfoWidget();
 
 signals:
     void backInfoSignal(int Id);
