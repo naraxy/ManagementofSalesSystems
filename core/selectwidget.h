@@ -12,7 +12,7 @@ class selectWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit selectWidget(QWidget *parent = nullptr);
+    explicit selectWidget(QWidget *parent = 0);
     ~selectWidget();
 
 signals:

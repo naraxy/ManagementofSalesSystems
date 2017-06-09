@@ -16,7 +16,7 @@ class sellCommodityWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit sellCommodityWidget(QWidget *parent = nullptr);
+    explicit sellCommodityWidget(QWidget *parent = 0);
     ~sellCommodityWidget();
 
 signals:

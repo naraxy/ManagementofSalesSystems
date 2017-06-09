@@ -11,14 +11,14 @@ commodityInfoWidget::commodityInfoWidget(QWidget *parent) : QWidget(parent)
     //    初始化
     this->resize(560,330);
     //    页面部件
-    backBtn = new QPushButton(tr("返回"));
+    backBtn = new QPushButton(tr("返回"),this);
     Hspacer = new QSpacerItem(490,20);
-    tableView = new QTableView();
+    tableView = new QTableView(this);
 
     mainLayout = new QVBoxLayout();
-    optionBox =new QGroupBox(tr("查看商品信息"));
-    optionLayout = new QVBoxLayout();
-    btnLayout = new QHBoxLayout();
+    optionBox =new QGroupBox(tr("查看商品信息"),this);
+    optionLayout = new QVBoxLayout;
+    btnLayout = new QHBoxLayout;
     //    局部布局
     tableView->resize(550,290);
     this->createTable();

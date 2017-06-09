@@ -17,23 +17,23 @@ addNewArrivalWidget::addNewArrivalWidget(QWidget *parent) : QWidget(parent)
     //    初始化
     this->resize(560,330);
     //    页面部件
-    nameTitle = new QLabel(tr("商  品："));
-    buyPriceTitle = new QLabel(tr("采购价："));
-    sellPriceTitle = new QLabel(tr("销售价："));
-    numberTitle = new QLabel(tr("库存量："));
-    nameEdit = new QLineEdit();
-    buyPrice = new QLineEdit();
-    sellPrice = new QLineEdit();
-    number = new QLineEdit();
+    nameTitle = new QLabel(tr("商  品："),this);
+    buyPriceTitle = new QLabel(tr("采购价："),this);
+    sellPriceTitle = new QLabel(tr("销售价："),this);
+    numberTitle = new QLabel(tr("库存量："),this);
+    nameEdit = new QLineEdit(this);
+    buyPrice = new QLineEdit(this);
+    sellPrice = new QLineEdit(this);
+    number = new QLineEdit(this);
 
-    backBtn = new QPushButton(tr("返回"));
-    okBtn = new QPushButton(tr("确定"));
+    backBtn = new QPushButton(tr("返回"),this);
+    okBtn = new QPushButton(tr("确定"),this);
     Vspacer = new QSpacerItem(20,190);
     Hspacer = new QSpacerItem(420,20);
     OHspacer = new QSpacerItem(220,30);
 
     mainLayout = new QVBoxLayout();
-    optionBox =new QGroupBox(tr("录入采新品信息"));
+    optionBox =new QGroupBox(tr("录入采新品信息"),this);
     optionLayout = new QVBoxLayout();
     optionName = new QHBoxLayout();
     optionBuyPrice = new QHBoxLayout();
@@ -48,12 +48,12 @@ addNewArrivalWidget::addNewArrivalWidget(QWidget *parent) : QWidget(parent)
     QRegularExpression val("^[\u4e00-\u9fa5]{0,20}$");
     nameVal = new QRegularExpressionValidator(val, this);
     nameEdit->setValidator(nameVal);
-    priceVal = new QDoubleValidator;
+    priceVal = new QDoubleValidator(this);
     priceVal->setRange(0,1000,2);
     priceVal->setNotation(QDoubleValidator::StandardNotation);
     buyPrice->setValidator(priceVal);
     sellPrice->setValidator(priceVal);
-    numberVal = new QIntValidator;
+    numberVal = new QIntValidator(this);
     numberVal->setRange(0,1000);
     number->setValidator(numberVal);
     //    选项栏布局

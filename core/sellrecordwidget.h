@@ -18,7 +18,7 @@ class sellRecordWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit sellRecordWidget(QWidget *parent = nullptr);
+    explicit sellRecordWidget(QWidget *parent = 0);
     ~sellRecordWidget();
 
 signals:

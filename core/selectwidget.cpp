@@ -13,20 +13,20 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
 //    初始化
     this->resize(560,330);
 //    页面部件
-    buyBtn = new QRadioButton(tr("采购商品信息"));
-    sellBtn = new QRadioButton(tr("销售商品信息"));
-    addBtn = new QRadioButton(tr("添加新品信息"));
-    infoBtn = new QRadioButton(tr("查看商品信息"));
-    buyRecordBtn = new QRadioButton(tr("查看采购记录"));
-    sellRecordBtn = new QRadioButton(tr("查看销售记录"));
+    buyBtn = new QRadioButton(tr("采购商品信息"),this);
+    sellBtn = new QRadioButton(tr("销售商品信息"),this);
+    addBtn = new QRadioButton(tr("添加新品信息"),this);
+    infoBtn = new QRadioButton(tr("查看商品信息"),this);
+    buyRecordBtn = new QRadioButton(tr("查看采购记录"),this);
+    sellRecordBtn = new QRadioButton(tr("查看销售记录"),this);
     Vspacer = new QSpacerItem(20,110);
     Hspacer = new QSpacerItem(420,20);
-    nextBtn = new QPushButton(tr("下一步"));
-    exitBtn = new QPushButton(tr("退出"));
+    nextBtn = new QPushButton(tr("下一步"),this);
+    exitBtn = new QPushButton(tr("退出"),this);
 //    页面布局
-    radioBtnGroup = new QButtonGroup();
-    QVBoxLayout *radioBtnLayout = new QVBoxLayout();
-    QHBoxLayout *pushbtnLayout = new QHBoxLayout();
+    radioBtnGroup = new QButtonGroup(this);
+    QVBoxLayout *radioBtnLayout = new QVBoxLayout;
+    QHBoxLayout *pushbtnLayout = new QHBoxLayout;
 //    局部布局
     radioBtnLayout->setAlignment(Qt::AlignCenter);
     radioBtnLayout->addWidget(buyBtn);
@@ -41,7 +41,7 @@ selectWidget::selectWidget(QWidget *parent) : QWidget(parent)
     pushbtnLayout->addSpacerItem(Hspacer);
     pushbtnLayout->addWidget(nextBtn);
 //    总体布局
-    QVBoxLayout *mainLayout = new QVBoxLayout();
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
 //    部件设置
     QFont btnFont;
     btnFont.setPointSize(13);

@@ -15,7 +15,7 @@ class buyRecordWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit buyRecordWidget(QWidget *parent = nullptr);
+    explicit buyRecordWidget(QWidget *parent = 0);
     ~buyRecordWidget();
 
 signals:

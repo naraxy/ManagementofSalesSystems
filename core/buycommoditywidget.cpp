@@ -19,38 +19,38 @@ buyCommodityWidget::buyCommodityWidget(QWidget *parent) : QWidget(parent)
     //    初始化
     this->resize(560,330);
     //    页面部件
-    nameTitle = new QLabel(tr("商  品："));
-    buyPriceTitle = new QLabel(tr("采购价："));
-    numberTitle = new QLabel(tr("采购量："));
-    name = new QComboBox();
+    nameTitle = new QLabel(tr("商  品："),this);
+    buyPriceTitle = new QLabel(tr("采购价："),this);
+    numberTitle = new QLabel(tr("采购量："),this);
+    name = new QComboBox(this);
     this->createName();
-    buyPrice = new QLineEdit();
-    number = new QLineEdit();
+    buyPrice = new QLineEdit(this);
+    number = new QLineEdit(this);
 
-    backBtn = new QPushButton(tr("返回"));
-    okBtn = new QPushButton(tr("确定"));
+    backBtn = new QPushButton(tr("返回"),this);
+    okBtn = new QPushButton(tr("确定"),this);
     Vspacer = new QSpacerItem(20,220);
     Hspacer = new QSpacerItem(420,20);
     OHspacer = new QSpacerItem(220,30);
 
-    mainLayout = new QVBoxLayout();
-    optionBox =new QGroupBox(tr("录入采购商品信息"));
-    optionLayout = new QVBoxLayout();
-    optionName = new QHBoxLayout();
-    optionBuyPrice = new QHBoxLayout();
-    optionNum = new QHBoxLayout();
-    btnLayout = new QHBoxLayout();
+    mainLayout = new QVBoxLayout;
+    optionBox =new QGroupBox(tr("录入采购商品信息"),this);
+    optionLayout = new QVBoxLayout;
+    optionName = new QHBoxLayout;
+    optionBuyPrice = new QHBoxLayout;
+    optionNum = new QHBoxLayout;
+    btnLayout = new QHBoxLayout;
     //    局部布局
     okBtn->resize(70,20);
     //    字体布局
     QFont labelFont;
     labelFont.setPointSize(13);
     //    填表规范
-    buyPriceVal = new QDoubleValidator;
+    buyPriceVal = new QDoubleValidator(this);
     buyPriceVal->setRange(0,1000,2);
     buyPriceVal->setNotation(QDoubleValidator::StandardNotation);
     buyPrice->setValidator(buyPriceVal);
-    numberVal = new QIntValidator;
+    numberVal = new QIntValidator(this);
     numberVal->setRange(0,1000);
     number->setValidator(numberVal);
     //    选项栏布局

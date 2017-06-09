@@ -43,17 +43,17 @@ MainWidget::MainWidget(QWidget *parent)
         db->open();
     }
 //    页面部件
-    mainTitle = new QLabel(tr("商品销售系统"));
+    mainTitle = new QLabel(tr("商品销售系统"),this);
 //    页面布局
-    stackedLayout = new QStackedLayout();
+    stackedLayout = new QStackedLayout;
 //    局部布局
-    selectWgt = new selectWidget();
-    buyWgt = new buyCommodityWidget();
-    sellWgt = new sellCommodityWidget();
-    addWgt = new addNewArrivalWidget();
-    infoWgt = new commodityInfoWidget();
-    buyRecordWgt = new buyRecordWidget();
-    sellRecordWgt = new sellRecordWidget();
+    selectWgt = new selectWidget(this);
+    buyWgt = new buyCommodityWidget(this);
+    sellWgt = new sellCommodityWidget(this);
+    addWgt = new addNewArrivalWidget(this);
+    infoWgt = new commodityInfoWidget(this);
+    buyRecordWgt = new buyRecordWidget(this);
+    sellRecordWgt = new sellRecordWidget(this);
 
     stackedLayout->addWidget(selectWgt);
     stackedLayout->addWidget(buyWgt);
@@ -63,7 +63,7 @@ MainWidget::MainWidget(QWidget *parent)
     stackedLayout->addWidget(buyRecordWgt);
     stackedLayout->addWidget(sellRecordWgt);
 //    总体布局
-    mainLayout = new QVBoxLayout();
+    mainLayout = new QVBoxLayout(this);
 //    部件设置
     mainTitle->setAlignment(Qt::AlignCenter);
     mainTitle->setFixedSize(560,50);

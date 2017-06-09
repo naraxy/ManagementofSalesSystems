@@ -15,7 +15,7 @@ class addNewArrivalWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit addNewArrivalWidget(QWidget *parent = nullptr);
+    explicit addNewArrivalWidget(QWidget *parent = 0);
     ~addNewArrivalWidget();
 
 signals:
